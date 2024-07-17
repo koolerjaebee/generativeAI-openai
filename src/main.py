@@ -5,7 +5,7 @@ from openai import OpenAI, AzureOpenAI
 import pickle
 from markdownify import markdownify as md
 
-from env import AZURE_OPENAI_API_KEY, AZURE_OPENAI_API_VERSION, AZURE_OPENAI_ENDPOINT
+from src.env import AZURE_OPENAI_API_KEY, AZURE_OPENAI_API_VERSION, AZURE_OPENAI_ENDPOINT
 
 
 def extract_tables_from_markdown_with_labels(markdown_text, label_position='before'):
