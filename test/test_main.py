@@ -1,6 +1,6 @@
 import pytest
 from unittest.mock import patch, MagicMock
-import main  # main.py 모듈 임포트
+from main import extract_tables_from_markdown_with_labels  # main.py 모듈 임포트
 import subprocess
 
 # # API 호출 모의
@@ -32,7 +32,7 @@ import subprocess
 
 
 def test_func():
-    test_tables_with_labels = main.extract_tables_from_markdown_with_labels("""Table 3: 처음 음주 연령
+    test_tables_with_labels = extract_tables_from_markdown_with_labels("""Table 3: 처음 음주 연령
  
 
 
