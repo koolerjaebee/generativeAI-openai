@@ -1,7 +1,7 @@
 import os
 import pytest
 from unittest.mock import patch, MagicMock
-from src.main import extract_tables_from_markdown_with_labels  # main.py 모듈 임포트
+from main import extract_tables_from_markdown_with_labels  # main.py 모듈 임포트
 import subprocess
 
 # # API 호출 모의
@@ -61,7 +61,7 @@ def test_func():
 
 def test_main_py_execution():
     # main.py 실행
-    result = subprocess.run(['python3', 'src/main.py'],
+    result = subprocess.run(['python3', 'main.py'],
                             capture_output=True, text=True)
     print(result)
     # 성공적으로 실행되었는지 확인 (종료 코드가 0인지)
