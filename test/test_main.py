@@ -61,7 +61,7 @@ def test_func():
 
 def test_main_py_execution():
     # main.py 실행
-    result = subprocess.run(['python3', 'main.py'],
+    result = subprocess.run(['python3', 'src/main.py'],
                             capture_output=True, text=True)
     print(result)
     # 성공적으로 실행되었는지 확인 (종료 코드가 0인지)
