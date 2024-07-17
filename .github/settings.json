@@ -1,0 +1,9 @@
+{
+    "python.testing.pytestArgs": [
+        "-W ignore::DeprecationWarning:invoke.loader",
+        "-s",
+        "--rootdir=./"
+    ],
+    "python.testing.pytestEnabled": true,
+    "python.testing.cwd": "./test"
+}
