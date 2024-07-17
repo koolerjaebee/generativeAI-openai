@@ -5,7 +5,7 @@ from openai import OpenAI, AzureOpenAI
 import pickle
 from markdownify import markdownify as md
 
-from src.env import AZURE_OPENAI_API_KEY, AZURE_OPENAI_API_VERSION, AZURE_OPENAI_ENDPOINT
+from src.env import Env
 
 
 def extract_tables_from_markdown_with_labels(markdown_text, label_position='before'):
@@ -67,9 +67,9 @@ if __name__ == '__main__':
 
     # Azure OpenAI API를 사용하여 Assistant 생성
     client = AzureOpenAI(
-        api_key=AZURE_OPENAI_API_KEY,
-        api_version=AZURE_OPENAI_API_VERSION,
-        azure_endpoint=AZURE_OPENAI_ENDPOINT,
+        api_key=Env.AZURE_OPENAI_API_KEY,
+        api_version=Env.AZURE_OPENAI_API_VERSION,
+        azure_endpoint=Env.AZURE_OPENAI_ENDPOINT,
     )
 
     # ./input/assistant.pkl이 없을시
