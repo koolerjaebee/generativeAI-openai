@@ -47,4 +47,5 @@ jobs:
       env:
         PYTHONPATH: ${{ github.workspace }}/src
       run: |
+        cat .env  # 디버깅용: 환경 변수가 제대로 설정되었는지 출력해 봅니다.
         pytest

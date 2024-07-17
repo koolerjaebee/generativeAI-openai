@@ -6,6 +6,12 @@ import pickle
 from markdownify import markdownify as md
 
 from env import Env
+import dotenv
+
+dotenv.load_dotenv()
+print("AZURE_OPENAI_ENDPOINT:", os.getenv('AZURE_OPENAI_ENDPOINT'))
+print("AZURE_OPENAI_KEY:", os.getenv('AZURE_OPENAI_KEY'))
+print("AZURE_OPENAI_API_VERSION:", os.getenv('AZURE_OPENAI_API_VERSION'))
 
 
 def extract_tables_from_markdown_with_labels(markdown_text, label_position='before'):
