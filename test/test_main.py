@@ -66,7 +66,7 @@ def test_main_py_execution():
     # main.py 실행
     result = subprocess.run(['python3', 'main.py'],
                             capture_output=True, text=True, cwd=parent_directory)
-
+    print(result)
     # 성공적으로 실행되었는지 확인 (종료 코드가 0인지)
     assert result.returncode == 0, "main.py did not exit successfully"
 
