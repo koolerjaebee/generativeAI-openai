@@ -59,7 +59,7 @@ if __name__ == '__main__':
             markdown_text = md(html_content)
             tables = extract_tables_from_markdown_with_labels(
                 markdown_text)  # 테이블 추출
-            tables = tables[:3]  # 테스트를 위해 3개의 테이블만 사용
+            # tables = tables[:3]  # 테스트를 위해 3개의 테이블만 사용
 
             # 테이블을 파일로 저장하거나 다른 처리를 수행
             print(f"Found {len(tables)} tables in {filename}.md")

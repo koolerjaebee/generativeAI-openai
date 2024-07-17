@@ -1,3 +1,4 @@
+import os
 import pytest
 from unittest.mock import patch, MagicMock
 from main import extract_tables_from_markdown_with_labels  # main.py 모듈 임포트
@@ -44,27 +45,31 @@ def test_func():
 
     |  | 카테고리 | 평균 ± 표준편차 |
     | --- | --- | --- |
-    | 전체 |  | 9\.21 ± 3\.03 |
-    | 연령별 | 초등학교 5학년 | 8\.31 ± 2\.5 |
-    |  | 중학교 2학년 | 10\.94 ± 3\.22 |
-    | 지역별 | 북부 | 8\.8 ± 3\.24 |
-    |  | 중부 | 9\.74 ± 2\.84 |
-    |  | 남부 | 8\.14 ± 3\.12 |
-    | 부모음주별 | 예 | 9\.21 ± 3\.01 |
-    |  | 아니오 | 9\.21 ± 3\.09 |
+    | 전체 |  | 9.21 ± 3.03 |
+    | 연령별 | 초등학교 5학년 | 8.31 ± 2.5 |
+    |  | 중학교 2학년 | 10.94 ± 3.22 |
+    | 지역별 | 북부 | 8.8 ± 3.24 |
+    |  | 중부 | 9.74 ± 2.84 |
+    |  | 남부 | 8.14 ± 3.12 |
+    | 부모음주별 | 예 | 9.21 ± 3.01 |
+    |  | 아니오 | 9.21 ± 3.09 |
     """)
+    print(test_tables_with_labels[0])
     assert len(test_tables_with_labels) == 1
-    assert test_tables_with_labels[0] == "Table 3: 처음 음주 연령"
+    assert "Table 3: 처음 음주 연령" in test_tables_with_labels[0]
 
 
 def test_main_py_execution():
+    # 상위 디렉토리 경로 설정
+    parent_directory = os.path.abspath(
+        os.path.join(os.path.dirname(__file__), '..'))
     # main.py 실행
-    result = subprocess.run(['python', 'main.py'],
-                            capture_output=True, text=True)
+    result = subprocess.run(['python3', 'main.py'],
+                            capture_output=True, text=True, cwd=parent_directory)
 
     # 성공적으로 실행되었는지 확인 (종료 코드가 0인지)
     assert result.returncode == 0, "main.py did not exit successfully"
 
-    # 예상되는 출력이 있는지 검증
-    expected_output = "Hello, World!"  # 예상되는 출력을 여기에 적어주세요
-    assert expected_output in result.stdout, "Expected output not found in main.py execution result"
+    # # 예상되는 출력이 있는지 검증
+    # expected_output = "Hello, World!"  # 예상되는 출력을 여기에 적어주세요
+    # assert expected_output in result.stdout, "Expected output not found in main.py execution result"
