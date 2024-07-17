@@ -32,7 +32,7 @@ import subprocess
 
 
 def test_func():
-    test_tables_with_labels = main.extract_tables_from_markdown_with_labels("""Table 3: 처음 음주 연령
+    test_tables_with_labels = main.extract_tables_from_markdown_with_labels("""Table 3: 처음 음주 연령
  
 
 
@@ -54,7 +54,7 @@ def test_func():
     |  | 아니오 | 9\.21 ± 3\.09 |
     """)
     assert len(test_tables_with_labels) == 1
-    assert test_tables_with_labels[0] == """Table 3: 처음 음주 연령"""
+    assert test_tables_with_labels[0] == "Table 3: 처음 음주 연령"
 
 
 def test_main_py_execution():
